@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="save_to_tag">Save to Tag</string>
+    <string name="nfc_setting">Nfc Setting</string>
+    <string name="wifi_setting">WiFi Setting</string>
+    <string name="action_about">About</string>
+    <string name="SSID">WiFi SSID: </string>
+    <string name="Security">Security: </string>
+    <string name="key">WiFi key: </string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="inquire">Inquire</string>
+    <string name="nfc_notic_one">没有nfc</string>
+    <string name="nfc_notic_two">没有打开nfc功能</string>
+    <string name="dilog_notice">NfcWiFiAssistance</string>
+    <string name="nfc_notic_three">Please Tap the Nfc Tag....</string>
+</resources>
