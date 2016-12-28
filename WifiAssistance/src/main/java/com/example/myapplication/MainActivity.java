@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.myapplication.com.example.myapplication.dao.ActivityDao;
+import com.example.myapplication.domain.SimpleWifiInfo;
 import com.example.myapplication.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity implements ActivityDao {
@@ -22,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements ActivityDao {
     private EditText mEd_ssid;
     private EditText mEd_passwd;
     private Spinner mSp_sec;
-    private String sec_str;
-    private String ssid_str;
-    private String key_str;
+    private String sec_str = null;
+    private String ssid_str = null;
+    private String key_str = null;
 
 
     private static final String[] spinnerStr = {"NONE", "WEP", "WPA/WPA2"};
@@ -78,13 +81,44 @@ public class MainActivity extends AppCompatActivity implements ActivityDao {
 
                 if (null == key_str) {
                     ToastUtil.showToast(mContext, "默认密码为空");
-                    key_str = " ";//默认ssid
+                    key_str = " ";//默认key
                 } else {
                     key_str = mEd_passwd.getText().toString().trim();
                 }
+                SimpleWifiInfo simpleWifiInfo = new SimpleWifiInfo(sec_str, ssid_str, key_str);
 
+                Intent intent = new Intent(mContext, WifiConnectConfigWriter.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.putExtra("SIMPLE_WIFI_INFO", simpleWifiInfo);
+                MainActivity.this.startActivityForResult(intent, 100);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        String str = item.getTitle().toString();
+        switch (item.getItemId()) {
+
+            case R.id.nfc_setting:
+                ToastUtil.showToast(mContext,str);
+                break;
+            case R.id.wifi_setting:
+                ToastUtil.showToast(mContext,str);
+                break;
+            case R.id.action_about:
+                ToastUtil.showToast(mContext,str);
+                break;
+        }
+
+        return true;
     }
 
     @Override

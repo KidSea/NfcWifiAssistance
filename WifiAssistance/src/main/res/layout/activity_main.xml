@@ -88,7 +88,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="@string/SSID"
+            android:text="@string/key"
             />
         <EditText
             android:id="@+id/ed_passwd"
