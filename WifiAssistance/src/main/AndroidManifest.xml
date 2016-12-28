@@ -3,7 +3,14 @@
           package="com.example.myapplication">
 
     <!-- 权限 -->
-    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -16,6 +23,19 @@
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WifiConnectConfigWriter"/>
+        <activity
+            android:name=".WifiConnectHandler"
+            android:launchMode="singleInstance"
+            >
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED"/>
+                <!-- 添加这一条默认设置，能拦截当前页面所有扫描NFC的配置 -->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/plain"></data>
             </intent-filter>
         </activity>
     </application>
