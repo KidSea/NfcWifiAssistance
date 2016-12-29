@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="@string/save_to_tag"
+        android:background="@drawable/shape"
+        android:text="@string/bt_cancel"
         android:textSize="30sp"
         />
 </LinearLayout>

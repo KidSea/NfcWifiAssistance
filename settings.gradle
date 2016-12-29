@@ -1,1 +1,2 @@
-include ':app', ':WifiAssistance'
+include ':app'
+include ':WifiAssistance'

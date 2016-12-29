@@ -52,6 +52,11 @@ public class SimpleWifiInfo implements Parcelable {
         dest.writeString(key);
     }
 
+    @Override
+    public String toString() {
+        return "Type: " + type + "SSID: " + ssid + "Key: " + key;
+    }
+
     public boolean isKeyPreHashed(){
         return key != null && key.length() == 64;
     }

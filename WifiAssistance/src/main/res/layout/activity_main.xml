@@ -24,6 +24,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="@string/save_to_tag"
+        android:background="@drawable/shape"
         android:textSize="30sp"
         />
 

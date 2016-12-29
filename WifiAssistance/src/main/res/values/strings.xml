@@ -10,6 +10,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="inquire">Inquire</string>
+    <string name="bt_cancel">Cancel</string>
     <string name="nfc_notic_one">没有nfc</string>
     <string name="nfc_notic_two">没有打开nfc功能</string>
     <string name="dilog_notice">NfcWiFiAssistance</string>
